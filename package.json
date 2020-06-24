@@ -4,7 +4,8 @@
   "description": "User can enter their mileage and be given a time frame for a maintenance check.",
   "main": "server.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
