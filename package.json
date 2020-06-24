@@ -1,0 +1,19 @@
+{
+  "name": "motor-services",
+  "version": "1.0.0",
+  "description": "User can enter their mileage and be given a time frame for a maintenance check.",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deannapi/motor-services.git"
+  },
+  "author": "DeAnna Martinez, Paul Bradley, Conrad Trust",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deannapi/motor-services/issues"
+  },
+  "homepage": "https://github.com/deannapi/motor-services#readme"
+}
