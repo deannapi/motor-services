@@ -25,6 +25,7 @@
     "express-handlebars": "^4.0.4",
     "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
+    "js-datepicker": "^5.14.2",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.13"
   }
