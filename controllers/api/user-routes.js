@@ -36,7 +36,8 @@ router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        miles: req.body.miles
     })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
@@ -47,7 +48,7 @@ router.post('/', (req, res) => {
 
 // Login route to log in to the website
 router.post('/login', (req, res) => {
-    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+    // expects {email: 'email@mail.com', password: 'password1'}
     User.findOne({
         where: {
           email: req.body.email
