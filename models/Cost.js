@@ -12,6 +12,14 @@ Cost.init(
             autoIncrement: true
         },
         // add other properties as needed
+        maintenance_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        price: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
     },
     {
         sequelize,

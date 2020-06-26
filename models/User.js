@@ -9,6 +9,7 @@ class User extends Model {
 }
 
 User.init(
+  // id, username, email, miles, password
   {
     id: {
       type: DataTypes.INTEGER,
@@ -34,6 +35,10 @@ User.init(
       validate: {
         len: [4]
       }
+    },
+    miles: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   },
   {
