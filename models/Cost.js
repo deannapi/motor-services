@@ -12,8 +12,8 @@ Cost.init(
             autoIncrement: true
         },
         // add other properties as needed
-        maintenance_id: {
-            type: DataTypes.INTEGER,
+        description: {
+            type: DataTypes.TEXT,
             allowNull: false
         },
         price: {
