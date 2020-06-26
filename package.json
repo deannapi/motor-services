@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "handlebars": "^4.7.6",
     "js-datepicker": "^5.14.2",
     "mysql2": "^2.1.0",
+    "nodemon": "^2.0.4",
     "sequelize": "^5.21.13"
   }
 }
