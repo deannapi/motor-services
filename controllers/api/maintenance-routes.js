@@ -21,7 +21,8 @@ router.post('/', (req, res) => {
     Maintenance.create({
         date: req.body.date,
         mileage: req.body.mileage,
-        user_id: req.body.user_id
+        user_id: req.body.user_id,
+        maintenance_type: req.body.maintenance_type
     })
     .then(dbMaintenanceData => res.json(dbMaintenanceData))
     .catch(err => {

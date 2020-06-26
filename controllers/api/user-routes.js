@@ -33,6 +33,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    // User inputs username, email, password, mileage when creating account  
     User.create({
         username: req.body.username,
         email: req.body.email,
