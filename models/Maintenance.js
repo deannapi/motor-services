@@ -15,17 +15,10 @@ Maintenance.init( {
     date: {
         type: DataTypes.DATEONLY, 
         allowNull: false
-    },
+    }, // removed user_id
     mileage: {
         type: DataTypes.INTEGER,
         allowNull: false
-    },
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'user',
-            key: 'id'
-        }
     },
     maintenance_type: {
         type: DataTypes.STRING,
