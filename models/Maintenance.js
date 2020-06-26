@@ -5,6 +5,7 @@ const sequelize = require('../config/connection');
 class Maintenance extends Model {}
 
 Maintenance.init( {
+    // Expects id, date, mileage, user_id, maintenance type
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -25,6 +26,10 @@ Maintenance.init( {
             model: 'user',
             key: 'id'
         }
+    },
+    maintenance_type: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 },
 {
