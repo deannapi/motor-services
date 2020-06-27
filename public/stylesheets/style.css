@@ -51,3 +51,18 @@ input {
     height: 25px;
 }
 
+.entry_lbl {
+    margin-bottom: 10px;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a:hover {
+    color: black;
+}
+
+ul li a {
+    color: white;
+}
