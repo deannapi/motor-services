@@ -17,7 +17,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true
     },
-    username: {
+    full_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -36,10 +36,6 @@ User.init(
         len: [4]
       }
     },
-    miles: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
   },
   {
     hooks: {
