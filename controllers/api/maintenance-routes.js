@@ -1,4 +1,5 @@
 const { User, Maintenance, Cost } = require('../../models');
+const { json } = require('sequelize/types'); // ??
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
@@ -25,6 +26,51 @@ router.post('/', (req, res) => {
         maintenance_type: req.body.maintenance_type
     })
     .then(dbMaintenanceData => res.json(dbMaintenanceData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+router.put('/:id', (req, res) => {
+    // Expects date, mileage, type
+    Maintenance.update(
+        {
+            date: req.body.date,
+            mileage: req.body.mileage,
+            maintenance_type: req.body.maintenance_type
+        },
+        {
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbMaintenanceData => {
+        if(!dbMaintenanceData){
+            res.status(404).json({ message: 'No maintenance type found with this id' })
+            return;
+        }
+        res.json(dbMaintenanceData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+router.delete('/:id', (req, res) => {
+    Maintenance.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbMaintenanceData => {
+        if(!dbMaintenanceData){
+            res.status(404).json({ message: 'No maintenance data found with this id' });
+            return;
+        }
+        res.json(dbMaintenanceData);
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
