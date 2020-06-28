@@ -14,6 +14,27 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+    User.create({
+      full_name: req.body.full_name,
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(dbUserData => {
+        req.session.save(() => {
+          req.session.user_id = dbUserData.id;
+          req.session.username = dbUserData.username;
+          req.session.loggedIn = true;
+  
+          res.json(dbUserData);
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      })
+  });
+
 // Login route to log in to the website
 router.post('/login', (req, res) => {
     // expects {email: 'email@mail.com', password: 'password1'}
