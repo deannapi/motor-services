@@ -1,7 +1,37 @@
-{{!-- need an option to log mileage --}}
-{{!-- or to log vehicle cost spend --}}
-<form>
-    <label class="entry_lbl">What entry are you making today?</label>
-    <button id="add-miles" onclick="">Add mileage</button>
-    <button id="add-cost">Add a maintenance entry</button>
+{{!-- this page will handle both login and signup --}}
+
+<form class="login-form">
+  <div>
+    <label for="email-login">Email:</label>
+    <input type="text" id="email-login" />
+  </div>
+  <div>
+    <label for="password-login">Password:</label>
+    <input type="password" id="password-login" />
+  </div>
+  <div>
+    <button type="submit">Login</button>
+  </div>
 </form>
+
+<form class="signup-form">
+  <h5>Create an account.</h5>
+  <div>
+    <label for="fullname-signup">Full Name:</label>
+    <input type="text" id="name-signup" />
+  </div>
+  <div>
+    <label for="email-signup">Email:</label>
+    <input type="text" id="email-signup" />
+  </div>
+  <div>
+    <label for="password-signup">Password:</label>
+    <input type="password" id="password-signup" />
+  </div>
+  <div>
+    <button type="submit">Signup</button>
+  </div>
+</form>
+
+</form>
+<script src="/javascript/login.js"></script>
