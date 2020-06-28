@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    res.render('add-mileage', {loggedIn: true});
+    res.render('add-cost');
 });
 
 module.exports = router;

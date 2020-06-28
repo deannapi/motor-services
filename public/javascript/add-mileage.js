@@ -22,4 +22,15 @@ async function addMileageFormHandler(event) {
     }
 }
 
-document.querySelector('#add-mileage').addEventListener('submit', addMileageFormHandler);
+// document.querySelector('#add-mileage').addEventListener('submit', addMileageFormHandler);
+
+
+// Add mileage button sends to mileage page
+const addMiles = document.querySelector('.add-miles');
+
+if (addMiles) {
+    addMiles.addEventListener('click', function(event) {
+        event.preventDefault();
+        document.location.replace('/mileage')
+    });
+};
