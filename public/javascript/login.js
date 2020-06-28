@@ -42,7 +42,7 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/homepage');
+        document.location.assign('/welcome');
       } else {
         alert(response.statusText);
       }
