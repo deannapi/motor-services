@@ -4,7 +4,7 @@ const { User, Maintenance } = require('../models');
 
 router.get('/welcome', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('welcome');
+        res.render('welcome', {loggedIn: true});
     }
     return;
 });
