@@ -17,7 +17,20 @@ header {
     padding: 0 1%;
     border-bottom: black 3px solid;
     margin-bottom: 15px;
+    font-variant: small-caps;
 }
+
+footer {
+    border-top: 2px solid red;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #ba862b;
+    color: black;
+    font-variant: small-caps;
+  }
 
 button {
     background-color: #ba862b;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +17,6 @@
                     {{#if loggedIn}}
                     <li><a href="/">Home</a></li>
                     <li class="logout"><a href="/logout" class="logout">Logout</a></li>
-                    {{!-- {{else}} --}}
-                    {{!-- <li><a href="/login">Login</a></li> --}}
                     {{/if}}
                 </ul>
             </nav>
@@ -26,9 +25,15 @@
     <main>
         {{{ body }}}
     </main>
-    
-    {{#if loggedIn}}
+
+    <footer>
+        Insert footer material.
+    </footer>
+
+    {{!-- {{#if loggedIn}} --}}
     <script src="/javascript/logout.js"></script>
-    {{/if}}
+    {{!-- <script src="/javascript.login.js"></script> --}}
+    {{!-- {{/if}} --}}
 </body>
+
 </html>
