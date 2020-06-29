@@ -11,6 +11,10 @@ Cost.init(
             primaryKey: true,
             autoIncrement: true
         },
+        date: {
+            type: DataTypes.DATEONLY,
+            allowNull: false
+        },
         // add other properties as needed
         description: {
             type: DataTypes.TEXT,
@@ -32,7 +36,7 @@ Cost.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment'
+        modelName: 'cost'
     }
 );
 

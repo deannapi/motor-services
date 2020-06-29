@@ -1,13 +1,13 @@
 <section>
-    <form class="maintenance">
+    <form class="miles_form">
         {{!-- select date --}}
         <label for="date">Date:</label>
-        <input type="date">
+        <input type="date" id="date_miles" name="date_miles">
 
         {{!-- enter mileage --}}
         <label>Enter Current Mileage:</label>
-        <input name="mileage" type="number" >
-        
+        <input name="mileage" type="number" id="miles">
+
     </form>
 
     <button id="add-mileage" type="submit">Submit</button>
@@ -15,33 +15,16 @@
 
 <h2>Mileage LogBook</h2>
 
-<table class="logbook">
+<table id="mile_book">
     <tr>
         <th>Date</th>
         <th>Mileage</th>
         <th>Projected Service Date (Conventional Motor Oil)</th>
         <th>Projected Service Date (Synthetic Motor Oil)</th>
-        <th>Windshield Wiper Blades</th>
-        <th>Battery</th>
         <th>Brake Pads</th>
         <th>Tires</th>
-
+        <th>Air Filter</th>
     </tr>
-    {{#each maintenance}}
-        <tr>
-            <td>{{maintenance.maintenance_type}}</td>
-
-            {{!-- <td class="date">{{date}}</td>
-            <td class="mileage">{{mileage}}</td>
-            <td class="conventional">{{conventional}}</td>
-            <td class="synthetic">{{synthetic}}</td>
-            <td class="wipers">{{wipers}}/td>
-            <td class="battery">{{battery}}</td>
-            <td class="brakes">{{brakes}}</td>
-            <td class="tires">{{tires}}</td> --}}
-        </tr>
-    {{/each}}
-    
 </table>
 
 <script src="/javascript/add-mileage.js"></script>
