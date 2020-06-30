@@ -12,11 +12,7 @@ Maintenance.init( {
         primaryKey: true,
         autoIncrement: true
     },
-    date: {
-        type: DataTypes.DATEONLY, 
-        allowNull: false
-    }, // removed user_id
-    mileage: {
+    frequency: {
         type: DataTypes.INTEGER,
         allowNull: false
     },

@@ -1,26 +1,30 @@
 <section>
-    <form class="maintenance">
-        {{!-- select date --}}
-        <label for="date">Date:</label>
-        <input type="date">
-
-        {{!-- enter mileage --}}
-        <label>Enter Current Mileage:</label>
-        <input name="mileage" type="number" >
+    <h5>Update your mileage for more accurate information!</h5>
+    <form class="maintenance form">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Update your mileage" aria-label="Mileage update" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Submit</button>
+        </div>
+    </div>
         
     </form>
 
-    <button id="add-mileage" type="submit">Submit</button>
+
+    {{!-- <button id="add-mileage" class="btn btn-primary" type="submit">Submit</button> --}}
+
+
 </section>
 
-<h2>Mileage LogBook</h2>
+    {{!-- <div class="progress-bar"></div> --}}
 
-<table class="logbook">
+<h2>Mileage</h2>
+
+<table class="logbook container-fluid">
     <tr>
         <th>Date</th>
         <th>Mileage</th>
-        <th>Projected Service Date (Conventional Motor Oil)</th>
-        <th>Projected Service Date (Synthetic Motor Oil)</th>
+        <th>Oil Change</th>
         <th>Windshield Wiper Blades</th>
         <th>Battery</th>
         <th>Brake Pads</th>

@@ -1,3 +1,5 @@
+// const session = require('express-session');
+
 async function logout() {
     const response = await fetch('/api/users/logout', {
       method: 'post',
@@ -5,7 +7,7 @@ async function logout() {
     });
   
     if (response.ok) {
-      document.location.replace('/');
+      window.location.assign('/');
     } else {
       alert(response.statusText);
     }

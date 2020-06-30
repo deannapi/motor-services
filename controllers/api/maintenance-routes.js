@@ -1,5 +1,4 @@
 const { User, Maintenance, Cost } = require('../../models');
-// const { json } = require('sequelize/types'); // ??
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
@@ -18,11 +17,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    // Expects id, date, mileage, user_id
+    // Expects id, frequency of maintencance, mileage, user_id
     Maintenance.create({
-        date: req.body.date,
-        mileage: req.body.mileage,
-        user_id: req.body.user_id,
+        frequency: req.body.frequency,
         maintenance_type: req.body.maintenance_type
     })
     .then(dbMaintenanceData => res.json(dbMaintenanceData))
@@ -33,11 +30,10 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    // Expects date, mileage, type
+    // Expects frequency, mileage, type
     Maintenance.update(
         {
-            date: req.body.date,
-            mileage: req.body.mileage,
+            frequency: req.body.frequency,
             maintenance_type: req.body.maintenance_type
         },
         {

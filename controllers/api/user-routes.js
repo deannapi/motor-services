@@ -7,6 +7,7 @@ router.get("/", (req, res) => {
     email: req.body.email,
     password: req.body.password,
     miles: req.body.miles,
+    oil_type: req.body.oil_type
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -16,11 +17,13 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234', 'oil_type: 'Synthetic' OR 'Conventional'}
     User.create({
       full_name: req.body.full_name,
       email: req.body.email,
       password: req.body.password,
+      oil_type: req.body.oil_type
+      // Conventional is default, add checkbox to switch to Synthetic
     })
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => {
@@ -38,6 +41,17 @@ router.post("/login", (req, res) => {
       email: req.body.email,
     },
   }).then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(400).json({ message: 'No user with that email address!' });
+        return;
+      }
+      // Verify user
+      const validPassword = dbUserData.checkPassword(req.body.password);
+      if(!validPassword){
+          res.status(400).json({ message: 'Incorrect password!' });
+          return;
+      }
+
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       req.session.full_name = dbUserData.full_name;
@@ -45,17 +59,6 @@ router.post("/login", (req, res) => {
 
       res.json({ user: dbUserData, message: "You are now logged in!" });
     });
-
-    // if (!dbUserData) {
-    //     res.status(400).json({ message: 'No user with that email address!' });
-    //     return;
-    // }
-    // Verify user
-    // const validPassword = dbUserData.checkPassword(req.body.password);
-    // if(!validPassword){
-    //     res.status(400).json({ message: 'Incorrect password!' });
-    //     return;
-    // }
   });
 });
 

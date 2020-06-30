@@ -4,6 +4,19 @@ async function signupFormHandler(event) {
     const full_name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
+    // Whichever oil type radio button is selected 'Conventional' or 'Synthetic'
+    // const synthOil = document.getElementById('#synth-radio');
+    // const convOil = document.getElementById('#conv-radio');
+
+    // if (synthOil.checked) {
+    //   const oil_type = synthOil.value;
+    //   return oil_type;
+    // }
+    // else {
+    //   oil_type = convOil.value;
+    // };
+    const oil_type = document.querySelector('input[name="oilRadios"]:checked').value;
+
   
     if (full_name && email && password) {
       const response = await fetch ('/api/users', {
@@ -11,7 +24,8 @@ async function signupFormHandler(event) {
         body: JSON.stringify({
           full_name,
           email,
-          password
+          password,
+          oil_type
         }),
         headers: { 'Content-Type': 'application/json' }
       });
