@@ -79,3 +79,13 @@ ul li a:hover {
 ul li a {
     color: white;
 }
+
+.progress-bar {
+    width: 80%;
+    height: 60px;
+    background-color: rgb(109, 202, 202);
+    border-radius: 2%;
+    justify-content: center;
+    margin: auto;
+    border: 1px solid aqua;
+}
