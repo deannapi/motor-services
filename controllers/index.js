@@ -5,7 +5,6 @@ const apiRoutes = require('./api');
 const costRoutes = require('./cost-routes');
 
 router.use('/', homeRoutes);
-// router.use('/login', loginRoutes);
 router.use('/mileage', milesRoutes);
 router.use('/api', apiRoutes);
 router.use('/cost', costRoutes);

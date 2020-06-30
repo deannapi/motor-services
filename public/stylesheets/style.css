@@ -10,6 +10,7 @@ main {
 table, th, td {
     border: 1px solid black;
     padding: 7px;
+    margin-bottom: 15px;
 }
 
 header {
