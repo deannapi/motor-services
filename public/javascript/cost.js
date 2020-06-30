@@ -34,12 +34,15 @@ if (addMaint) {
   });
 }
 
+// get input text with submit button
+var data = JSON.parse(localStorage.getItem("Maintenance Logbook")) || {};
+
 // submit button renders date, description and cost to table
 var maintSubmit = document.getElementById("add-maintenance");
 
 maintSubmit.addEventListener("click", function() {
     const date = document.getElementById("date").value;
-    const description = document.getElementById("maintenance").value;
+    const description = document.getElementById("description").value;
     const price = document.getElementById("price").value;
 
     console.log(date, description, price);
@@ -62,4 +65,8 @@ maintSubmit.addEventListener("click", function() {
 
     // on submit clear input fields
     document.getElementById("maintenance").reset();
+
+    // save data to local storage
+    data = [date, description, price];
+    localStorage.setItem("Maintenance Logbook", JSON.stringify(data));
 });

@@ -32,6 +32,9 @@ if (addMiles) {
   });
 }
 
+// get input text with submit button
+var data = JSON.parse(localStorage.getItem("Mileage Logbook")) || {};
+
 // insert selected date and mileage into table
 var mileSubmit = document.getElementById("add-mileage");
 
@@ -113,4 +116,8 @@ mileSubmit.addEventListener("click", function () {
 
     //   on submit, clear input fields
     document.getElementById("miles_form").reset();
+
+    // save data to local storage
+    data = [date, mileage];
+    localStorage.setItem("Mileage Logbook", JSON.stringify(data));
 });
