@@ -33,3 +33,33 @@ if (addMaint) {
     document.location.replace("/cost");
   });
 }
+
+// submit button renders date, description and cost to table
+var maintSubmit = document.getElementById("add-maintenance");
+
+maintSubmit.addEventListener("click", function() {
+    const date = document.getElementById("date").value;
+    const description = document.getElementById("maintenance").value;
+    const price = document.getElementById("price").value;
+
+    console.log(date, description, price);
+
+    // add date, desc and price to table
+    const row = document.createElement("tr");
+    const td1 = document.createElement("td");
+    td1.innerText = date;
+    row.appendChild(td1);
+
+    const td2 = document.createElement('td');
+    td2.innerText = description;
+    row.appendChild(td2);
+
+    const td3 = document.createElement("td");
+    td3.innerText = price;
+    row.appendChild(td3);
+
+    document.getElementById("costbook").appendChild(row);
+
+    // on submit clear input fields
+    document.getElementById("maintenance").reset();
+});

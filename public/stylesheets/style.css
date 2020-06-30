@@ -43,6 +43,8 @@ button {
     padding: 1%;
     font-weight: bold;
     border-radius: 5px;
+    width: fit-content;
+    margin: 5px;
 }
 
 h5 {
@@ -56,6 +58,7 @@ button:hover {
 form {
     margin: 5px 0 5px 0;
     padding: 10px;
+    display: grid;
 }
 
 form > div {
