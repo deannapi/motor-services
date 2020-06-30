@@ -1,13 +1,14 @@
 {{!-- this page will handle both login and signup --}}
 
-<form class="login-form">
+<form class="login-form form-group">
+  <h5>Sign in</h5>
   <div>
     <label for="email-login">Email:</label>
-    <input type="text" id="email-login" />
+    <input type="text" id="email-login" class="form-control" placeholder="Enter email"/>
   </div>
   <div>
     <label for="password-login">Password:</label>
-    <input type="password" id="password-login" />
+    <input type="password" id="password-login" class="form-control" />
   </div>
   <div>
     <button type="submit">Login</button>
@@ -18,15 +19,15 @@
   <h5>Create an account.</h5>
   <div>
     <label for="fullname-signup">Full Name:</label>
-    <input type="text" id="name-signup" />
+    <input type="text" id="name-signup" class="form-control" placeholder="Jane Doe"/>
   </div>
   <div>
     <label for="email-signup">Email:</label>
-    <input type="text" id="email-signup" />
+    <input type="text" id="email-signup" class="form-control"/>
   </div>
   <div>
     <label for="password-signup">Password:</label>
-    <input type="password" id="password-signup" />
+    <input type="password" id="password-signup" class="form-control"/>
   </div>
   <div>
     <button type="submit">Signup</button>
