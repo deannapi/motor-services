@@ -21,10 +21,6 @@ Maintenance.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    maintenance_type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
   },
   {
     sequelize,
