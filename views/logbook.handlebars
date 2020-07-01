@@ -1,0 +1,35 @@
+{{!-- input box for date, description and price --}}
+
+{{!-- submit --}}
+
+<section>
+    <form id="maintenance">
+        {{!-- select date --}}
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date_cost">
+
+        {{!-- enter mileage --}}
+        <label>Enter the vehicle maintenance that was done.</label>
+        <input name="maintenance" type="text" id="description">
+
+        {{!-- enter cost of maintenance --}}
+        <label>Enter the price of the maintenance.</label>
+        <input name="price" type="number" id="price">
+        
+    </form>
+
+    <button id="add-maintenance" type="submit" >Submit</button>
+</section>
+
+<h2>Maintenance LogBook</h2>
+
+<table id="costbook">
+    <tr>
+        <th>Date</th>
+        <th>Maintenance</th>
+        <th>Cost</th>
+
+    </tr>  
+</table>
+
+<script src="/javascript/cost.js"></script>

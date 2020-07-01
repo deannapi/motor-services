@@ -10,6 +10,7 @@ body {
 table, th, td {
     border: 1px solid black;
     padding: 7px;
+    margin-bottom: 15px;
 }
 
 header {
@@ -49,6 +50,8 @@ button {
     padding: 1%;
     font-weight: bold;
     border-radius: 5px;
+    width: fit-content;
+    margin: 5px;
 }
 
 h5 {
