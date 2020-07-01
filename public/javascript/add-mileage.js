@@ -1,8 +1,7 @@
 async function post(mileageData) {
-  debugger;
   const response = await fetch(`/api/maintenance`, {
     method: "POST",
-    body: mileageData,
+    body: JSON.stringify(mileageData),
     headers: {
       "Content-Type": "application/json",
     },
@@ -23,28 +22,12 @@ async function getAll() {
     }
   });
 
-  if (response.ok) {  
+  if (response.ok) {
     return await response.json();
   } else {
     console.log(response.statusText);
   }
 }
-
-// "Add mileage" button sends to mileage page
-const addMiles = document.querySelector(".add-miles");
-
-if (addMiles) {
-  addMiles.addEventListener("click", function (event) {
-    event.preventDefault();
-    document.location.replace("/mileage");
-  });
-}
-
-// get input text with submit button
-var data = JSON.parse(localStorage.getItem("Mileage Logbook")) || {};
-
-// insert selected date and mileage into table
-var mileSubmit = document.getElementById("add-mileage");
 
 async function renderTable() {
   const data = await getAll();
@@ -61,7 +44,6 @@ async function renderTable() {
     row.appendChild(td2);
 
     document.getElementById("mile_book").appendChild(row);
-    //   NEED TO ADD LOCAL STORAGE HERE - data deletes on refresh
 
     // calculations for repair columns
     var synOil = 3000;
@@ -126,15 +108,14 @@ async function renderTable() {
   document.getElementById("miles_form").reset();
 }
 
-mileSubmit.addEventListener('submit', (e) => {
-  e.preventDefault();
+document.getElementById("add-mileage")
+  .addEventListener('click', async () => {
+    // get form data
+    const date = document.getElementById("date_miles").value;
+    const mileage = parseInt(document.getElementById("miles").value);
 
-  // get form data
-  const date = document.getElementById("date_miles").value;
-  const mileage = document.getElementById("miles").value;
-
-  // post to api with the form data
-  post({ date, mileage });
-});
+    // post to api with the form data
+    await post({ date, mileage });
+  });
 
 document.addEventListener("DOMContentLoaded", renderTable);
