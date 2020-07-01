@@ -1,21 +1,22 @@
-<section>
+<section>        
     <form id="miles_form">
         {{!-- select date --}}
         <label for="date">Date:</label>
-        <input type="date" id="date_miles" name="date_miles">
+        <input type="date" id="date_miles" name="date_miles" class="form-control miles-input">
 
         {{!-- enter mileage --}}
         <label>Enter Current Mileage:</label>
-        <input name="mileage" type="number" id="miles">
+        <input name="mileage" type="number" id="miles" class="form-control miles-input" placeholder="30000">
 
+        <button id="add-mileage" class="btn btn-outline-primary miles-input" type="submit">Submit</button>
     </form>
-
-    <button id="add-mileage" type="submit">Submit</button>
 </section>
 
-<h2>Mileage LogBook</h2>
 
-<table id="mile_book">
+<h2 id="table-header">Mileage</h2>
+
+<table id="mile_book" class="container-fluid">
+
     <tr>
         <th>Date</th>
         <th>Mileage</th>

@@ -40,6 +40,7 @@ var data = JSON.parse(localStorage.getItem("Maintenance Logbook")) || {};
 // submit button renders date, description and cost to table
 var maintSubmit = document.getElementById("add-maintenance");
 
+if (maintSubmit) {
 maintSubmit.addEventListener("click", function() {
     const date = document.getElementById("date").value;
     const description = document.getElementById("description").value;
@@ -70,3 +71,4 @@ maintSubmit.addEventListener("click", function() {
     data = [date, description, price];
     localStorage.setItem("Maintenance Logbook", JSON.stringify(data));
 });
+}

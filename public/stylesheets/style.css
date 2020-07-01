@@ -47,11 +47,6 @@ footer {
 button {
     background-color: rgb(187, 64, 64);
     /* border: red 2px solid; */
-    padding: 1%;
-    font-weight: bold;
-    border-radius: 5px;
-    width: fit-content;
-    margin: 5px;
 }
 
 h5 {
@@ -66,6 +61,8 @@ form {
     margin: 5px 0 5px 0;
     padding: 20px;
     width: 50%;
+    padding: 10px;
+    display: grid;
 }
 
 form > div {
@@ -95,6 +92,16 @@ ul li a {
     color: white;
 }
 
+.progress-bar {
+    width: 80%;
+    height: 60px;
+    background-color: rgb(109, 202, 202);
+    border-radius: 2%;
+    justify-content: center;
+    margin: 15px auto;
+    border: 1px solid aqua;
+}
+
 .login-form {
     float: left
 }
@@ -104,5 +111,40 @@ ul li a {
 }
 
 form h5 {
+    text-align: center;
+}
+
+.oil-btn {
+    width: 48%;
+    margin: 15px 0;
+}
+
+.welcome-btn {
+    padding: 10px;
+    margin: 10px;
+}
+
+#miles_form  {
+    width: 20%;
+    margin: 5px 20px;
+}
+
+#miles_form label {
+    margin: 5px 0;
+}
+
+.miles-input {
+    margin: 5px 0;
+}
+
+#mile_book {
+    margin: auto;
+    width: 95%;
+}
+
+#table-header {
+    margin: 10px auto;
+
+    justify-content: center;
     text-align: center;
 }
