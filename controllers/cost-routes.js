@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    res.render('add-cost');
+    res.render('logbook');
 });
 
 module.exports = router;
