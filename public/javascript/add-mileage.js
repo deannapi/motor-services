@@ -1,13 +1,8 @@
 async function addMileageFormHandler(event) {
   event.preventDefault();
 
-    
-    //document.querySelector('input[name="date"]').value; Replaced with above code to automatically produce the date of mileage update
-
-if (document.querySelector('#add-mileage')) {
-    document.querySelector('#add-mileage').addEventListener('submit', addMileageFormHandler);
+  const date = document.querySelector('input[name="date_miles"]').value;
   const mileage = document.querySelector('input[name="mileage"]').value;
-  const date = new Date().toLocaleDateString()
 
   const response = await fetch(`/api/maintenance`, {
     method: "POST",
@@ -125,4 +120,4 @@ mileSubmit.addEventListener("click", function () {
     // save data to local storage
     data = [date, mileage];
     localStorage.setItem("Mileage Logbook", JSON.stringify(data));
-
+});

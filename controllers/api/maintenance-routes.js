@@ -1,4 +1,5 @@
 const { User, Maintenance, Cost } = require('../../models');
+
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
@@ -17,9 +18,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    // Expects id, frequency of maintencance, mileage, user_id
+    // Expects id, date, mileage, user_id
     Maintenance.create({
-        frequency: req.body.frequency,
+        date: req.body.date,
+        mileage: req.body.mileage,
         maintenance_type: req.body.maintenance_type
     })
     .then(dbMaintenanceData => res.json(dbMaintenanceData))
@@ -30,10 +32,11 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    // Expects frequency, mileage, type
+    // Expects date, mileage, type
     Maintenance.update(
         {
-            frequency: req.body.frequency,
+            date: req.body.date,
+            mileage: req.body.mileage,
             maintenance_type: req.body.maintenance_type
         },
         {
