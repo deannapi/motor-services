@@ -61,6 +61,7 @@ async function loginFormHandler(event) {
         document.location.assign('/welcome');
       } else {
         alert(response.statusText);
+        window.alert('Please try again.');
       }
     }
 }
