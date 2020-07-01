@@ -29,6 +29,24 @@ async function getAll() {
   }
 }
 
+// async function getUsers() {
+//   const response = await fetch('/users', {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json"
+//     }
+//   });
+
+//   if (response.ok) {
+//     return await response.json();
+//   }
+//   else {
+//     console.log(response.statusText)
+//   }
+// };
+
+// Add in a way to pull user information to determine their type of oil and only display that type
+
 async function renderTable() {
   const data = await getAll();
 
@@ -46,16 +64,17 @@ async function renderTable() {
     document.getElementById("mile_book").appendChild(row);
 
     // calculations for repair columns
-    var synOil = 3000;
+    var synOil = 7500;
     var brakes = 50000;
     var tires = 45000;
-    var filter = 300000;
-    var convOil = 7500;
+    var filter = 25000;
+    var convOil = 5000;
 
     //   Conventional Oil
     const td3 = document.createElement("td");
-    if (i.mileage <= convOil) {
-      answer1 = convOil - i.mileage;
+    // Changed from if (i.mileage <= convOil)
+    if ((i.mileage % convOil) > 300) {
+      answer1 = convOil - (i.mileage % convOil);
       td3.innerText = answer1 + " more miles to go";
 
     } else {
@@ -65,8 +84,8 @@ async function renderTable() {
     row.appendChild(td3);
     //   Synthetic Oil
     const td4 = document.createElement("td");
-    if (i.mileage <= synOil) {
-      answer2 = synOil - i.mileage;
+    if ((i.mileage % synOil) > 300) {
+      answer2 = synOil - (i.mileage % synOil);
       td4.innerText = answer2 + " more miles to go";
 
     } else {
@@ -75,8 +94,8 @@ async function renderTable() {
     row.appendChild(td4);
     // Brake Pads
     const td5 = document.createElement("td");
-    if (i.mileage <= brakes) {
-      answer3 = brakes - i.mileage;
+    if ((i.mileage % brakes) > 300) {
+      answer3 = brakes - (i.mileage % brakes);
       td5.innerText = answer3 + " more miles to go";
 
     } else {
@@ -86,8 +105,8 @@ async function renderTable() {
 
     // Tires
     const td6 = document.createElement("td");
-    if (i.mileage <= tires) {
-      answer4 = tires - i.mileage;
+    if ((i.mileage % tires) > 300) {
+      answer4 = tires - (i.mileage % tires);
       td6.innerText = answer4 + " more miles to go";
 
     } else {
@@ -96,8 +115,8 @@ async function renderTable() {
 
     // Air Filter
     const td7 = document.createElement("td");
-    if (i.mileage <= filter) {
-      answer5 = filter - i.mileage;
+    if ((i.mileage % filter) > 300) {
+      answer5 = filter - (i.mileage % filter);
       td7.innerText = answer5 + " more miles to go";
       ;
     } else {
