@@ -4,17 +4,17 @@
 
 <div class="logbook-hbs">
     <div class="left-form">
-        <form id="maintenance" class="form">
+        <form id="maintenance">
             {{!-- select date --}}
             <label for="date">Date:</label>
             <input type="date" id="date" name="date_cost" class="form-control miles-input">
 
             {{!-- enter mileage --}}
-            <label>Enter the vehicle maintenance that was done.</label>
+            <label>Enter the vehicle maintenance that was done:</label>
             <input name="maintenance" type="text" id="description" class="form-control miles-input">
 
             {{!-- enter cost of maintenance --}}
-            <label>Enter the price of the maintenance.</label>
+            <label>Enter the price of the maintenance:</label>
             <input name="price" type="number" id="price" class="form-control miles-input">
             
             <button id="add-maintenance" type="submit" class="btn btn-outline-danger">Submit</button>
@@ -29,6 +29,7 @@
                 <th>Date</th>
                 <th>Maintenance</th>
                 <th>Cost</th>
+            </tr>
         </table>
     </div>
 </div>

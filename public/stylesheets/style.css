@@ -149,16 +149,35 @@ form h5 {
     text-align: center;
 } 
 
+.logbook-hbs {
+    overflow: auto;
+    display: inline-flex;
+    width: 100%;
+    padding: 20px;
+}
+
 .left-form {
     float: left;
-    width: 50%;
-    display: inline-flex;
+    width: 30%;
     margin: auto;
 }
 
 .right-form {
     float: right;
-    width: 70%;
-    display: inline-flex;
+    width: 65%;
     margin: auto;
+}
+
+#maintenance {
+    width: 100%;
+}
+
+.nav-links {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-btn {
+    margin: auto 10px;
 }
