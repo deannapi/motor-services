@@ -11,7 +11,7 @@ async function post(costData) {
   if (response.ok) {
     renderTable();
   } else {
-    alert(response.statusText);
+    console.log(response.statusText);
   }
 }
 

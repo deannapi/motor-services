@@ -36,8 +36,7 @@ async function signupFormHandler(event) {
       localStorage.setItem('user', JSON.stringify(res.user));
       document.location.assign('/welcome');
     } else {
-      alert(response.statusText);
-      window.alert('Please try again.');
+      console.log("Something went wrong");
     }
   }
 }
@@ -63,8 +62,7 @@ async function loginFormHandler(event) {
       localStorage.setItem('user', JSON.stringify(res.user));
       document.location.assign('/welcome');
     } else {
-      alert(response.statusText);
-      window.alert('Please try again.');
+      console.log("Something went wrong");
     }
   }
 }
