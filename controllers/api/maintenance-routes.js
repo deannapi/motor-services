@@ -58,15 +58,16 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/delete', (req, res) => {
     Maintenance.destroy({
         where: {
-            id: req.params.id
+            date: req.body.date,
+            mileage: req.body.mileage
         }
     })
     .then(dbMaintenanceData => {
         if(!dbMaintenanceData){
-            res.status(404).json({ message: 'No maintenance data found with this id' });
+            res.status(404).json({ message: 'No maintenance data found' });
             return;
         }
         res.json(dbMaintenanceData);

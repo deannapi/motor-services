@@ -30,8 +30,36 @@ async function getAll() {
   }
 }
 
+async function destroy(data) {
+  const response = await fetch(`/api/cost`, {
+    method: "DELETE",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    renderTable();
+  } else {
+    console.log(response.statusText);
+  }
+}
+
+// Delete button functionality
+async function deleteRow(row_id) {
+  const date = document.querySelector("#costbook").rows[row_id].cells[0].textContent;
+  const description = document.querySelector("#costbook").rows[row_id].cells[1].textContent;
+  console.log(date);
+  console.log(description);
+  await destroy({ date, description });
+  // document.querySelector("#mile_book").deleteRow(row_id);
+  location.reload();
+};
+
 async function renderTable() {
   const data = await getAll();
+  let index = 1;
   for (const i of data) {
 
 
@@ -49,7 +77,12 @@ async function renderTable() {
     td3.innerText = i.price;
     row.appendChild(td3);
 
+    const td8 = document.createElement("td");
+    td8.innerHTML = `<button id="cost-btn-${index}" class="btn btn-outline-secondary" onclick="deleteRow(${index})"><i class="fa fa-trash" aria-hidden="true"></i></button>`;
+    row.appendChild(td8);
+
     document.getElementById("costbook").appendChild(row);
+    index++;
   }
   // on submit clear input fields
   document.getElementById("maintenance").reset();
