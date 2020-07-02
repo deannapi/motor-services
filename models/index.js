@@ -12,4 +12,11 @@ Cost.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
+User.hasMany(Maintenance, {
+    foreignKey: 'user_id'
+});
+
+Maintenance.belongsTo(User, {
+    foreignKey: 'user_id'
+});
 module.exports = { User, Cost, Maintenance };

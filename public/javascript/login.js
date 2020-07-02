@@ -58,6 +58,8 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
+        const res = await response.json();
+        localStorage.setItem('user', JSON.stringify(res.user));
         document.location.assign('/welcome');
       } else {
         alert(response.statusText);

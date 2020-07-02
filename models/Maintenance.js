@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 // create the Maintenance Model
-class Maintenance extends Model {}
+class Maintenance extends Model { }
 
 Maintenance.init(
   {
@@ -21,6 +21,13 @@ Maintenance.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+      },
+    }
   },
   {
     sequelize,

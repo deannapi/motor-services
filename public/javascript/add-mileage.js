@@ -132,9 +132,10 @@ document.getElementById("add-mileage")
     // get form data
     const date = document.getElementById("date_miles").value;
     const mileage = parseInt(document.getElementById("miles").value);
-
+    const user_id = JSON.parse(localStorage.getItem('user')).id;
+    console.log(user_id)
     // post to api with the form data
-    await post({ date, mileage });
+    await post({ date, mileage, user_id });
   });
 
 document.addEventListener("DOMContentLoaded", renderTable);
