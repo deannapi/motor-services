@@ -9,7 +9,7 @@ async function logout() {
     if (response.ok) {
       window.location.assign('/');
     } else {
-      alert(response.statusText);
+      console.log(response.statusText);
     }
   }
   

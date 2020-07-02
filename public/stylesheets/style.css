@@ -16,8 +16,9 @@ table, th, td {
 }
 
 header {
-    display: flex;
+    display: block;
     background: rgb(187, 64, 64);
+    text-align: center;
     color: black;
     padding: 0 1%;
     margin-bottom: 15px;
@@ -42,7 +43,6 @@ header {
 }
 
 footer {
-    /* border-top: 2px solid red; */
     display: flex;
     justify-content: center;
     padding: 1%;
@@ -62,8 +62,17 @@ footer {
   }
 
 
+button {
+    background-color: rgb(187, 64, 64);
+}
+
+h3 {
+    font-family: "Lucida Handwriting";
+}
+
 h5 {
     margin: 3px 0 3px 0;
+    /* color: black; */
 }
 
 
@@ -81,7 +90,6 @@ form > div {
 }
 
 input {
-    /* border: 1px solid red; */
     width: 220px;
     height: 25px;
 }
@@ -232,3 +240,6 @@ form h5 {
     padding: 2px;
 }
 
+.log-table {
+    display: none;
+}
