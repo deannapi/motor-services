@@ -17,48 +17,48 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234', 'oil_type: 'Synthetic' OR 'Conventional'}
-    User.create({
-      full_name: req.body.full_name,
-      email: req.body.email,
-      password: req.body.password,
-      oil_type: req.body.oil_type
-      // Conventional is default, add checkbox to switch to Synthetic
-    })
-      .then((dbUserData) => res.json(dbUserData))
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234', 'oil_type: 'Synthetic' OR 'Conventional'}
+  User.create({
+    full_name: req.body.full_name,
+    email: req.body.email,
+    password: req.body.password,
+    oil_type: req.body.oil_type
+    // Conventional is default, add checkbox to switch to Synthetic
+  })
+    .then((dbUserData) => res.json(dbUserData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // this is for when a user logs in and it verifies if the email exists already or not
 // Login route to log in to the website
-router.post("/login", (req, res) => {
+router.post("/login", async (req, res) => {
   // expects {email: 'email@mail.com', password: 'password1'}
-  User.findOne({
+  const user = await User.findOne({
     where: {
       email: req.body.email,
     },
-  }).then((dbUserData) => {
-      if (!dbUserData) {
-        res.status(400).json({ message: 'No user with that email address!' });
-        return;
-      }
-      // Verify user
-      const validPassword = dbUserData.checkPassword(req.body.password);
-      if(!validPassword){
-          res.status(400).json({ message: 'Incorrect password!' });
-          return;
-      }
+  });
+  if (!user) {
+    res.status(400).json({ message: 'No user with that email address!' });
+    return;
+  }
+  // Verify user
+  console.log(req.body.password);
+  const validPassword = await user.checkPassword(req.body.password);
+  if (!validPassword) {
+    res.status(400).json({ message: 'Incorrect password!' });
+    return;
+  }
 
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.full_name = dbUserData.full_name;
-      req.session.loggedIn = true;
+  req.session.save(() => {
+    req.session.user_id = user.id;
+    req.session.full_name = user.full_name;
+    req.session.loggedIn = true;
 
-      res.json({ user: dbUserData, message: "You are now logged in!" });
-    });
+    res.json({ user, message: "You are now logged in!" });
   });
 });
 
@@ -102,13 +102,13 @@ router.delete("/:id", withAuth, (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
-    }
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 module.exports = router;

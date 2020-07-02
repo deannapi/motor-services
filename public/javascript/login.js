@@ -66,5 +66,18 @@ async function loginFormHandler(event) {
     }
 }
 
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+document.querySelector('#signup').addEventListener('click', signupFormHandler);
+document.querySelector('.signup-form').addEventListener('keyup',  (e) => {
+  if(e.keyCode === 13) {
+    event.preventDefault();
+    signupFormHandler(e);
+  }
+});
+
+document.querySelector('#login').addEventListener('click', loginFormHandler);
+document.querySelector('.login-form').addEventListener('keyup', (e) => {
+  if(e.keyCode === 13) {
+    event.preventDefault();
+    loginFormHandler(e);
+  }
+});
