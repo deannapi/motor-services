@@ -14,20 +14,19 @@ table, th, td {
 }
 
 header {
-    display: flex;
+    display: block;
     background: rgb(187, 64, 64);
+    text-align: center;
     color: black;
     justify-content: space-between;
     align-items: center;
     padding: 0 1%;
-    /* border-bottom: black 3px solid; */
     margin-bottom: 15px;
     font-variant: small-caps;
-    height: 60px;
+    height: 100px;
 }
 
 footer {
-    /* border-top: 2px solid red; */
     display: flex;
     justify-content: center;
     padding: 1%;
@@ -44,9 +43,24 @@ footer {
     bottom: 0;
   }
 
+.main::after {
+    content: '';
+    background-image: url("/images/auto-repair-edmonton-banner.jpg") no-repeat center center;
+    z-index: 9999;
+    opacity: 0.5;
+    position: absolute;
+}
+
+.main {
+    position: relative;
+}
+
 button {
     background-color: rgb(187, 64, 64);
-    /* border: red 2px solid; */
+}
+
+h3 {
+    font-family: "Lucida Handwriting";
 }
 
 h5 {
@@ -71,7 +85,6 @@ form > div {
 }
 
 input {
-    /* border: 1px solid red; */
     width: 220px;
     height: 25px;
 }
