@@ -12,13 +12,17 @@
 
 <body>
     <div>
-        <header>
-            <h1>Motor Services</h1>
-            <nav>
+        <header class="navbar container-fluid">
+            <div class="invisible"></div>
+            <div class="header-text text-center navbar-nav">
+                <h1>Vehicle Maintenance Tracker</h1>
+                <h4>Automotive care, simplified.</h4>
+            </div>
+            <div>
                 <ul class="nav-links">
                     {{> loginbtn }}
                 </ul>
-            </nav>
+            </div>
         </header>
     </div>
     <main>
@@ -26,7 +30,7 @@
     </main>
 
     <footer>
-        Insert footer material.
+        Automotive care, simplified.
     </footer>
 
     {{#if loggedIn}}
