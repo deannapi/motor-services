@@ -1,0 +1,6 @@
+{{#if loggedIn}}
+    <li class="nav-btn"><a href="/welcome"><button class="btn btn-outline-light">Home</button></a></li>
+    <li class="logout nav-btn"><a href="/logout" class="logout"><button class="btn btn-outline-light">Logout</button></a></li>
+    {{else}}
+    <li><a href="/login">Login</a></li>
+{{/if}}

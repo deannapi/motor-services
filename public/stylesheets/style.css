@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 7px;
+    margin-bottom: 15px;
+}
+
+header {
+    display: block;
+    background: rgb(187, 64, 64);
+    text-align: center;
+    color: black;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1%;
+    margin-bottom: 15px;
+    font-variant: small-caps;
+    height: 150px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: rgb(187, 64, 64);
+    color: black;
+    font-variant: small-caps;
+    clear: both;
+    position: absolute;
+    width: 100%;
+    height: 100;
+    left: 0;
+    bottom: 0;
+  }
+
+.main::after {
+    content: '';
+    background-image: url("/images/auto-repair-edmonton-banner.jpg") no-repeat center center;
+    z-index: 9999;
+    opacity: 0.5;
+    position: absolute;
+}
+
+.main {
+    position: relative;
+}
+
+button {
+    background-color: rgb(187, 64, 64);
+}
+
+h3 {
+    font-family: "Lucida Handwriting";
+}
+
+h5 {
+    margin: 3px 0 3px 0;
+}
+
+button:hover {
+    background-color: wheat;
+}
+
+form {
+    margin: 5px 0 5px 0;
+    padding: 20px;
+    width: 50%;
+    padding: 10px;
+    display: grid;
+}
+
+form > div {
+    margin-bottom: 2%;
+    padding: 5px;
+}
+
+input {
+    width: 220px;
+    height: 25px;
+}
+
+.entry_lbl {
+    margin-bottom: 10px;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a:hover {
+    color: black;
+}
+
+ul li a {
+    color: white;
+}
+
+.progress-bar {
+    width: 80%;
+    height: 60px;
+    background-color: rgb(109, 202, 202);
+    border-radius: 2%;
+    justify-content: center;
+    margin: 15px auto;
+    border: 1px solid aqua;
+}
+
+.login-form {
+    float: left
+}
+
+.signup-form {
+    float: right;
+}
+
+form h5 {
+    text-align: center;
+}
+
+.oil-btn {
+    width: 48%;
+    margin: 15px 0;
+}
+
+.welcome-btn {
+    padding: 10px;
+    margin: 10px;
+}
+
+#miles_form  {
+    width: 20%;
+    margin: 5px 20px;
+}
+
+#miles_form label {
+    margin: 5px 0;
+}
+
+.miles-input {
+    margin: 5px 0;
+}
+
+
+#mile_book {
+    margin: auto;
+    width: 95%;
+}
+
+.table-header {
+    margin: 15px auto;
+    justify-content: center;
+    text-align: center;
+} 
+
+.logbook-hbs {
+    overflow: auto;
+    display: inline-flex;
+    width: 100%;
+    padding: 20px;
+}
+
+.left-form {
+    float: left;
+    width: 30%;
+    margin: auto;
+}
+
+.right-form {
+    float: right;
+    width: 65%;
+    margin: auto;
+}
+
+#maintenance {
+    width: 100%;
+}
+
+.nav-links {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-btn {
+    margin: auto 10px;
+}

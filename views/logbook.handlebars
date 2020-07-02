@@ -1,0 +1,37 @@
+{{!-- input box for date, description and price --}}
+
+{{!-- submit --}}
+
+<div class="logbook-hbs">
+    <div class="left-form">
+        <form id="maintenance">
+            {{!-- select date --}}
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date_cost" class="form-control miles-input">
+
+            {{!-- enter mileage --}}
+            <label>Enter the vehicle maintenance that was done:</label>
+            <input name="maintenance" type="text" id="description" class="form-control miles-input">
+
+            {{!-- enter cost of maintenance --}}
+            <label>Enter the price of the maintenance:</label>
+            <input name="price" type="number" id="price" class="form-control miles-input">
+            
+            <button id="add-maintenance" type="submit" class="btn btn-outline-danger">Submit</button>
+        </form>
+    </section>
+    </div>
+
+    <div class="right-form">
+        <h2 class="table-header">Maintenance LogBook</h2>
+        <table id="costbook" class="container-fluid">
+            <tr>
+                <th>Date</th>
+                <th>Maintenance</th>
+                <th>Cost</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script src="/javascript/cost.js"></script>
