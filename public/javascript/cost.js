@@ -1,74 +1,69 @@
-async function addMaintenanceFormHandler(event) {
-  event.preventDefault();
-
-  const date = document.querySelector('input[name="date_cost"]').value;
-  const description = document.querySelector('input[name="maintenance"]').value;
-  const price = document.querySelector('input[name="price"]').value;
-
+"use strict";
+async function post(costData) {
   const response = await fetch(`/api/cost`, {
     method: "POST",
-    body: JSON.stringify({
-      date,
-      description,
-      price,
-    }),
+    body: JSON.stringify(costData),
     headers: {
       "Content-Type": "application/json",
     },
   });
 
   if (response.ok) {
-    document.location.replace("/cost");
+    renderTable();
   } else {
     alert(response.statusText);
   }
 }
 
-// "Add a maintenance entry" button sends to cost page
-const addMaint = document.querySelector(".add-cost");
-
-if (addMaint) {
-    addMaint.addEventListener("click", function (event) {
-    event.preventDefault();
-    document.location.replace("/cost");
+async function getAll() {
+  const response = await fetch('/api/cost', {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
   });
+
+  if (response.ok) {
+    return await response.json();
+  } else {
+    console.log(response.statusText);
+  }
 }
 
-// get input text with submit button
-var data = JSON.parse(localStorage.getItem("Maintenance Logbook")) || {};
+async function renderTable() {
+  const data = await getAll();
+  for (const i of data) {
 
-// submit button renders date, description and cost to table
-var maintSubmit = document.getElementById("add-maintenance");
-
-if (maintSubmit) {
-maintSubmit.addEventListener("click", function() {
-    const date = document.getElementById("date").value;
-    const description = document.getElementById("description").value;
-    const price = document.getElementById("price").value;
-
-    console.log(date, description, price);
 
     // add date, desc and price to table
     const row = document.createElement("tr");
     const td1 = document.createElement("td");
-    td1.innerText = date;
+    td1.innerText = i.date;
     row.appendChild(td1);
 
     const td2 = document.createElement('td');
-    td2.innerText = description;
+    td2.innerText = i.description;
     row.appendChild(td2);
 
     const td3 = document.createElement("td");
-    td3.innerText = price;
+    td3.innerText = i.price;
     row.appendChild(td3);
 
     document.getElementById("costbook").appendChild(row);
-
-    // on submit clear input fields
-    document.getElementById("maintenance").reset();
-
-    // save data to local storage
-    data = [date, description, price];
-    localStorage.setItem("Maintenance Logbook", JSON.stringify(data));
-});
+  }
+  // on submit clear input fields
+  document.getElementById("maintenance").reset();
 }
+
+document.getElementById("add-maintenance")
+  .addEventListener('click', async () => {
+    // get form data
+    const date = document.getElementById("date").value;
+    const description = document.getElementById("description").value;
+    const price = document.getElementById("price").value;
+
+    // post to api with the form data
+    await post({ date, description, price });
+  });
+
+document.addEventListener("DOMContentLoaded", renderTable);
