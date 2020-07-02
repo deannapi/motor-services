@@ -137,14 +137,28 @@ form h5 {
     margin: 5px 0;
 }
 
+
 #mile_book {
     margin: auto;
     width: 95%;
 }
 
-#table-header {
-    margin: 10px auto;
-
+.table-header {
+    margin: 15px auto;
     justify-content: center;
     text-align: center;
+} 
+
+.left-form {
+    float: left;
+    width: 50%;
+    display: inline-flex;
+    margin: auto;
+}
+
+.right-form {
+    float: right;
+    width: 70%;
+    display: inline-flex;
+    margin: auto;
 }
