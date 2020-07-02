@@ -32,24 +32,28 @@ async function getAll() {
 
 async function renderTable() {
   const data = await getAll();
-  for (const i of data) {
+  if (data.length) {
 
+    const table = document.getElementById("table-wrapper");
+    table.style.display = "block";
 
-    // add date, desc and price to table
-    const row = document.createElement("tr");
-    const td1 = document.createElement("td");
-    td1.innerText = i.date;
-    row.appendChild(td1);
+    for (const i of data) {
+      // add date, desc and price to table
+      const row = document.createElement("tr");
+      const td1 = document.createElement("td");
+      td1.innerText = i.date;
+      row.appendChild(td1);
 
-    const td2 = document.createElement('td');
-    td2.innerText = i.description;
-    row.appendChild(td2);
+      const td2 = document.createElement('td');
+      td2.innerText = i.description;
+      row.appendChild(td2);
 
-    const td3 = document.createElement("td");
-    td3.innerText = i.price;
-    row.appendChild(td3);
+      const td3 = document.createElement("td");
+      td3.innerText = i.price;
+      row.appendChild(td3);
 
-    document.getElementById("costbook").appendChild(row);
+      document.getElementById("costbook").appendChild(row);
+    }
   }
   // on submit clear input fields
   document.getElementById("maintenance").reset();

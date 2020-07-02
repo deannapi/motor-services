@@ -1,4 +1,4 @@
-<section>        
+<section>
     <form id="miles_form">
         {{!-- select date --}}
         <label for="date">Date:</label>
@@ -12,20 +12,21 @@
     </form>
 </section>
 
+<div class="log-table container-fluid" id="table-wrapper">
+    <h2 class="table-header">Mileage</h2>
 
-<h2 class="table-header">Mileage</h2>
+    <table id="mile_book">
 
-<table id="mile_book" class="container-fluid">
-
-    <tr>
-        <th>Date</th>
-        <th>Mileage</th>
-        <th>Projected Service Date (Conventional Motor Oil)</th>
-        <th>Projected Service Date (Synthetic Motor Oil)</th>
-        <th>Brake Pads</th>
-        <th>Tires</th>
-        <th>Air Filter</th>
-    </tr>
-</table>
+        <tr>
+            <th>Date</th>
+            <th>Mileage</th>
+            <th>Projected Service Date (Conventional Motor Oil)</th>
+            <th>Projected Service Date (Synthetic Motor Oil)</th>
+            <th>Brake Pads</th>
+            <th>Tires</th>
+            <th>Air Filter</th>
+        </tr>
+    </table>
+</div>
 
 <script src="/javascript/add-mileage.js"></script>

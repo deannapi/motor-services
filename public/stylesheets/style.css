@@ -193,3 +193,7 @@ form h5 {
 .nav-btn {
     margin: auto 10px;
 }
+
+.log-table {
+    display: none;
+}
