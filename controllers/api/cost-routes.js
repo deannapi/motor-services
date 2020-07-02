@@ -35,4 +35,24 @@ router.post('/', (req, res) => {
         });
 });
 
+router.delete('/', (req, res) => {
+    Cost.destroy({
+        where: {
+            date: req.body.date,
+            description: req.body.description
+        }
+    })
+    .then(dbCostData => {
+        if(!dbCostData) {
+            res.status(404).json({ message: 'No logbook data found' });
+            return;
+        }
+        res.json(dbCostData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 module.exports = router;

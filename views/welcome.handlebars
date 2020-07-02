@@ -1,10 +1,25 @@
   
 {{!-- need an option to log mileage --}}
 {{!-- or to log vehicle cost spend --}}
-<form>
-    <label class="entry_lbl">What entry are you making today?</label>
-    <button class="welcome-btn add-miles btn-danger">Add mileage</button>
-    <button class="welcome-btn add-cost btn-danger">Add a maintenance entry</button>
-</form>
+
+<div class="container-welcome">
+    
+    <img id="porsche" src="/images/porsche-motor.jpg">
+
+    <h3 class="welcome-header">What entry are you making today?</h3>
+    
+    <form id="welcome-form">
+        <button class="welcome-btn add-miles btn-outline-danger">
+            <h5>Add mileage</h5>
+            <p>Keep your vehicle in tip-top shape!</p>
+            <p>Take care of your car and see when you will need maintenance done.</p>
+        </button>
+        <button class="welcome-btn add-cost btn-outline-danger">
+            <h5>Add a logbook entry</h5>
+            <p>Keep track of your costs!</p>
+            <p>Keep track of your maintenance costs using our built in logbook.</p>
+            </button>
+    </form>
+</div>
 
 <script src="/javascript/welcome.js"></script>

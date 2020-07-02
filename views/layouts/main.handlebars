@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle Maintenance Tracker</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
@@ -12,14 +13,17 @@
 <body class="body">
     
     <div>
-        <header>
-            <h1>Vehicle Maintenance Tracker</h1>
-            <h3>Automotive Care, Simplified.</h3>
-            <nav>
+        <header class="navbar container-fluid">
+            <div class="invisible"></div>
+            <div class="header-text text-center navbar-nav">
+                <h1>Vehicle Maintenance Tracker</h1>
+                <h4>Automotive care, simplified.</h4>
+            </div>
+            <div>
                 <ul class="nav-links">
                     {{> loginbtn }}
                 </ul>
-            </nav>
+            </div>
         </header>
     </div>
     <main class="main">
@@ -27,7 +31,7 @@
     </main>
 
     <footer>
-        Automotive Care, Simplified.
+        Automotive care, simplified.
     </footer>
 
     {{#if loggedIn}}

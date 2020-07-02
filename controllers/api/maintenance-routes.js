@@ -62,23 +62,24 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/delete', (req, res) => {
     Maintenance.destroy({
         where: {
-            id: req.params.id
+            date: req.body.date,
+            mileage: req.body.mileage
         }
     })
-        .then(dbMaintenanceData => {
-            if (!dbMaintenanceData) {
-                res.status(404).json({ message: 'No maintenance data found with this id' });
-                return;
-            }
-            res.json(dbMaintenanceData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    .then(dbMaintenanceData => {
+        if(!dbMaintenanceData){
+            res.status(404).json({ message: 'No maintenance data found' });
+            return;
+        }
+        res.json(dbMaintenanceData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 module.exports = router;

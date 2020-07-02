@@ -4,13 +4,15 @@
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: white;
 }
+
 
 table, th, td {
     border: 1px solid black;
     padding: 7px;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 header {
@@ -18,12 +20,26 @@ header {
     background: rgb(187, 64, 64);
     text-align: center;
     color: black;
-    justify-content: space-between;
-    align-items: center;
     padding: 0 1%;
     margin-bottom: 15px;
     font-variant: small-caps;
-    height: 150px;
+    height: auto;
+    text-align: center;
+}
+
+.invisible {
+    width: 192px;
+}
+
+.header-text {
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    color: black;
+}
+
+.header1 {
+    color: black;
 }
 
 footer {
@@ -36,24 +52,15 @@ footer {
     color: black;
     font-variant: small-caps;
     clear: both;
-    position: absolute;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 100;
     left: 0;
     bottom: 0;
   }
 
-.main::after {
-    content: '';
-    background-image: url("/images/auto-repair-edmonton-banner.jpg") no-repeat center center;
-    z-index: 9999;
-    opacity: 0.5;
-    position: absolute;
-}
-
-.main {
-    position: relative;
-}
 
 button {
     background-color: rgb(187, 64, 64);
@@ -65,11 +72,9 @@ h3 {
 
 h5 {
     margin: 3px 0 3px 0;
+    /* color: black; */
 }
 
-button:hover {
-    background-color: wheat;
-}
 
 form {
     margin: 5px 0 5px 0;
@@ -90,7 +95,9 @@ input {
 }
 
 .entry_lbl {
-    margin-bottom: 10px;
+    padding-bottom: 15px;
+    font-size: 24px;
+    margin: auto;
 }
 
 ul li {
@@ -132,10 +139,6 @@ form h5 {
     margin: 15px 0;
 }
 
-.welcome-btn {
-    padding: 10px;
-    margin: 10px;
-}
 
 #miles_form  {
     width: 20%;
@@ -172,13 +175,13 @@ form h5 {
 .left-form {
     float: left;
     width: 30%;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .right-form {
     float: right;
     width: 65%;
-    margin: auto;
+    margin: 0 auto;
 }
 
 #maintenance {
@@ -187,10 +190,56 @@ form h5 {
 
 .nav-links {
     display: inline-flex;
-    margin: 0;
+    margin: auto;
     padding: 0;
 }
 
 .nav-btn {
     margin: auto 10px;
+}
+
+#porsche {
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    left: 0;
+}
+
+#welcome-form {
+    position: absolute;
+    width: 30%;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.welcome-header {
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+}
+
+.welcome-btn {
+    padding: 10px;
+    margin: 10px;
+    border-style: none;
+    border: 1px solid red;
+    border-radius: 5%;
+    min-height: 200px;
+    background-color: white;
+}
+
+.welcome-btn h5 {
+    padding-bottom: 2px;
+}
+
+.welcome-btn p {
+    color: black;
+    font-size: 14px;
+    padding: 2px;
+}
+
+.log-table {
+    display: none;
 }
