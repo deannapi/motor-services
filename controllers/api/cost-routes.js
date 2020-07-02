@@ -3,18 +3,22 @@ const { Cost } = require('../../models');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    Cost.findAll()
-    .then(dbCostData => {
-        if (!dbCostData) {
-            res.status(404).json({ message: 'Data not found'});
-            return;
+    Cost.findAll({
+        where: {
+            user_id: req.session.user_id
         }
-        res.json(dbCostData);
     })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCostData => {
+            if (!dbCostData) {
+                res.status(404).json({ message: 'Data not found' });
+                return;
+            }
+            res.json(dbCostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.post('/', (req, res) => {
@@ -24,11 +28,11 @@ router.post('/', (req, res) => {
         price: req.body.price,
         user_id: req.session.user_id
     })
-    .then(dbCostData => res.json(dbCostData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCostData => res.json(dbCostData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;
